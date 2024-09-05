@@ -3,6 +3,7 @@
 #include "Colors.h"
 #include "ColorPair.h"
 #include "ColorCodes.h"
+#include "main.h"
 
 void testNumberToPair(int pairNumber,
     TelCoColorCoder::MajorColor expectedMajor,
@@ -25,6 +26,11 @@ void testPairToNumber(
     assert(pairNumber == expectedPairNumber);
 }
 
+void testPrintAllColorCodes(int totalColorCodes) {
+    int totalColorCodesReturned = TelCoColorCoder::PrintAllColorCodes();
+    std::cout<< "Total color codes: " << totalColorCodesReturned << std::endl;
+    assert(totalColorCodesReturned == totalColorCodes);
+}
 
 int main() {
     testNumberToPair(4, TelCoColorCoder::WHITE, TelCoColorCoder::BROWN);
@@ -32,6 +38,7 @@ int main() {
 
     testPairToNumber(TelCoColorCoder::BLACK, TelCoColorCoder::ORANGE, 12);
     testPairToNumber(TelCoColorCoder::VIOLET, TelCoColorCoder::SLATE, 25);
-
+    
+    testPrintAllColorCodes(25);
     return 0;
 }
